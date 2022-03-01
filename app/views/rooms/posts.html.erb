@@ -1,0 +1,28 @@
+<div class="container">
+  <p class="result-count">登録済みルーム一覧</p>
+  <div class="row room-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>料金</th>
+          <th>作成日</th>
+        </tr>
+      </thead>
+
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= image_tag(room.room_image.present? ? room.room_image.url : "room01.jpeg", class: "reservations-image" ) %></td>
+          <td><%= room.room_name %></td>
+          <td><%= room.room_introduction %></td>
+          <td><%= room.price %></td>
+          <td><%= room.created_at %></td>
+          <td> <%= link_to "参照", room_path(room.id), class: "room-show" %> </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>

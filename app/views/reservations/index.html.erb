@@ -1,0 +1,37 @@
+<div class="container">
+  <p class="result-count">予約済みルーム一覧</p>
+  <div class="row room-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+
+
+      <% @reservations.each do |reservation| %>
+        <% @rooms = Room.where(id: reservation.room_id) %>
+          <% @rooms.each do |room| %>
+            <%= link_to room_path(room) do %>
+              <tr>
+                <td><%= image_tag(room.room_image.present? ? room.room_image.url : "room01.jpeg", class: "reservations-image" ) %></td>
+                <td><%= room.room_name %></td>
+                <td><%= room.room_introduction %></td>
+                <td><%= reservation.sum_of_price %></td>
+                <td><%= reservation.start_date %></td>
+                <td><%= reservation.end_date %></td>
+                <td><%= reservation.created_at %></td>
+              </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </table>
+
+  </div>
+</div>

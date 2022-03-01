@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      room: 部屋
+      reservation: 予約
+    attributes:
+      room:
+        room_name: ルーム名
+        room_introduction: ルーム紹介
+        price: 料金
+        address: 住所
+
+      reservation:
+        start_date: 開始日
+        end_date: 終了日
+        people: 人数
+

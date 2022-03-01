@@ -1,0 +1,48 @@
+<div class="top">
+  <div class="top-main">
+    <div class="container">
+      <div class="form-container">
+        <div class="form-area">
+          <p class="form-area-title">
+          Potepan Shareでまだ体験したことのない旅をしよう
+          <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+            <%= f.label :area, "エリア" %>
+            <%= f.text_field :search, placeholder: "東京", class: "form-input" %>
+            <%= f.submit :探す, class: "submit-btn reservation-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="panel-area">
+      <p class="panel-area-title">おすすめのエリア
+      <div class="row">
+        <div class="panel-item">
+          <span>東京</span>
+          <%= link_to controller: 'rooms', action: "index", search: "東京" do %>
+            <%= image_tag "img_tokyo.jpeg", class: "panel-image" %>
+          <% end %>
+        </div>
+        <div class="panel-item">
+          <span>大阪</span>
+          <%= link_to controller: 'rooms', action: "index", search: "大阪" do %>
+            <%= image_tag "img_osaka.jpeg", class: "panel-image" %>
+          <% end %>
+        </div>
+        <div class="panel-item">
+          <span>京都</span>
+          <%= link_to controller: 'rooms', action: "index", search: "京都" do %>
+            <%= image_tag "img_kyoto.jpeg", class: "panel-image" %>
+          <% end %>
+        </div>
+        <div class="panel-item">
+          <span>札幌</span>
+          <%= link_to controller: 'rooms', action: "index", search: "札幌" do %>
+            <%= image_tag "img_sapporo.jpeg", class: "panel-image" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
