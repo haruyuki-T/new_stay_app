@@ -1,0 +1,60 @@
+<div class="room-new-container">
+  <div class="row">
+    <div class="room-nav-left">
+      <div class="room-nav-title-box">
+        <%= link_to "アカウント", users_account_path, class: "account-self-nav" %>
+      </div>
+    </div>
+    <div class="room-nav">
+      <div class="room-nav-title-box">
+        <%= link_to "アカウント", users_account_path, class: "account-self-nav" %>
+      </div>
+    </div>
+    <div class="room-content">
+      <div class="room-content-box">
+
+          <div class="update-content">
+            <div class="row">
+              <p class="update-content-title">アカウント</p>
+            </div>
+          </div>
+
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <p class="account-label">アイコン画像</p>
+                <%= image_tag current_user.image.present? ? current_user.image.url : "default.jpg", class: "user-icon" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <p class="account-label">名前</p>
+                <%= @user.name %>
+              </div>
+            </div>
+          </div>
+
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <p class="account-label">メールアドレス</p>
+                <%= @user.email %>
+              </div>
+            </div>
+          </div>
+
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= link_to "編集", edit_user_registration_path, class: "devise-edit-btn" %>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="room-new-container">
+  <div class="row">
+    <div class="room-nav-left">
+      <div class="room-nav-title-box">
+        <%= link_to "基本情報", "/rooms/new", class: "room-nav-title" %>
+      </div>
+    </div>
+    <div class="room-nav">
+      <div class="room-nav-title-box">
+        <%= link_to "基本情報", "/rooms/new", class: "room-nav-title" %>
+      </div>
+    </div>
+    <div class="room-content">
+      <div class="room-content-box">
+      <%# バリデーション %>
+        <%= render "shared/error", obj: @room %>
+
+        <%= form_with model: @room do |f| %>
+          <%= f.hidden_field :user_id %>
+          <div class="update-content">
+            <div class="row">
+              <p class="update-content-title">ルーム情報登録</p>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= f.label :room_name, "ルーム名", class: "update-content-label" %>
+                <%= f.text_field :room_name, autofocus: true, autocomplete: "room_name", :placeholder => "ルーム名を入力", :class => "devise-form" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= f.label :room_introduction, "ルーム紹介", class: "update-content-label" %>
+                <%= f.text_field :room_introduction, autofocus: true, autocomplete: "room_introduction", :placeholder => "ルーム説明を入力", :class => "devise-form textarea" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= f.label :price, "料金", class: "update-content-label" %>
+                <%= f.text_field :price, autofocus: true, autocomplete: "price", :placeholder => "1日あたりの料金を入力", :class => "devise-form" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= f.label :address, "住所", class: "update-content-label" %>
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", :placeholder => "住所を入力", :class => "devise-form" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= f.label :room_image, "ルーム画像", class: "update-content-label-address" %>
+                <%= f.file_field :room_image, :class => "image-field" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="update-field">
+                <%= f.submit :登録, :class => "submit-btn" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
